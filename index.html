@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="text" id="text">My Name Is Digraj</p>
+    
+</body>
+<script>
+let text=document.querySelector("#text");
+let textArray=text.textContent.split("");
+text.textContent="";
+
+function createEle(){
+    let index=0;
+    appendEle();
+    function appendEle(){
+    if(index<textArray.length){
+        let span=document.createElement("span");
+        span.textContent=textArray[index];
+        text.append(span);
+        setTimeout(appendEle,200);
+        index++;
+        }
+    }
+}
+window.onload=createEle();
+
+</script>
+</html>
